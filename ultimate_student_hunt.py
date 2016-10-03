@@ -95,13 +95,11 @@ df_train = df_train.merge(park_month_mois_mean, on=['Park_ID', 'month'], how='le
 
 df_train.fillna(-1, inplace=True)
 
-
-# ## Cross validation and training
-
 # In[172]:
 
 ### best estimator
-gbr = XGBRegressor( nthread=-1,  missing= -1, n_estimators=300, learning_rate=0.02, max_depth=17, subsample=0.9, min_child_weight=3, colsample_bytree=0.7, reg_alpha=100, reg_lambda=100, silent=False)
+gbr = XGBRegressor( nthread=-1,  missing= -1, n_estimators=300, learning_rate=0.02, max_depth=17, subsample=0.9
+                   , min_child_weight=3, colsample_bytree=0.7, reg_alpha=100, reg_lambda=100, silent=False)
 
 
 # In[173]:
@@ -114,8 +112,6 @@ predictors = df_train.columns.drop(['Footfall', 'Date','year', 'ID', 'Location_T
 
 gbr.fit(df_train[predictors], df_train['Footfall'])
 
-
-# ## Test set testing and submission
 
 # In[176]:
 
