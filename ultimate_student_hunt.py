@@ -25,7 +25,6 @@ def rolling_diff(series):
 def divide(x, y):
     return x/y
 
-
 # In[168]:
 
 def add_all_features(df_train):
